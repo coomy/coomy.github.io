@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Test NQE</title>
+  <title>Test NQE</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
-	<h1>Hello NQE</h1>
+  <div id="app" class="row">
+      <div class="col-xs-2 text-right">type:</div><div>{{ type }}</div>
+      <div class="col-xs-2 text-right">downlink:</div><div>{{ downlink }}</div>
+      <div class="col-xs-2 text-right">rtt:</div><div>{{ rtt }}</div>
+      <div class="col-xs-2 text-right">downlinkMax:</div><div>{{ downlinkMax }}</div>
+      <div class="col-xs-2 text-right">effictiveType:</div><div>{{ effectiveType }}</div>
+      <br>
+      <div class="col-xs-2 col-xs-offset-1 btn btn-primary" v-on:click="updateNqe">Get NQE</div>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        type: '-',
+        downlink: '-',
+        rtt: '-',
+        downlinkMax: '-',
+        effectiveType: '-'
+      },
+      methods: {
+        updateNqe: function() {
+          this.type = navigator.connection.type!=undefined?navigator.connection.type:'x',
+          this.downlink = navigator.connection.downlink,
+          this.rtt = navigator.connection.rtt,
+          this.downlinkMax = navigator.connection.downlinkMax,
+          this.effectiveType = navigator.connection.effectiveType
+        }
+      }
+    })
+
+  </script>
 </body>
 
 </html>
