@@ -9,13 +9,25 @@
 </head>
 
 <body>
-  <div id="app" class="row">
+  <div id="app">
+    <div class="row">
       <div class="col-xs-2 text-right">type:</div><div>{{ type }}</div>
+    </div>
+    <div class="row">
       <div class="col-xs-2 text-right">downlink:</div><div>{{ downlink }}</div>
+    </div>
+    <div class="row">
       <div class="col-xs-2 text-right">rtt:</div><div>{{ rtt }}</div>
+    </div>
+    <div class="row">
       <div class="col-xs-2 text-right">downlinkMax:</div><div>{{ downlinkMax }}</div>
+    </div>
+    <div class="row">
       <div class="col-xs-2 text-right">effictiveType:</div><div>{{ effectiveType }}</div>
+    </div>
+    <div class="row">
       <div class="col-xs-2 col-xs-offset-1 btn btn-primary" v-on:click="updateNqe">Get NQE</div>
+    </div>
   </div>
 
   <script>
@@ -33,7 +45,7 @@
           this.type = navigator.connection.type,
           this.downlink = navigator.connection.downlink + ' Mb/s',
           this.rtt = navigator.connection.rtt + ' ms',
-          this.downlinkMax = navigator.connection.downlinkMax + 'Mb/s',
+          this.downlinkMax = navigator.connection.downlinkMax + ' Mb/s',
           this.effectiveType = navigator.connection.effectiveType
         }
       }
